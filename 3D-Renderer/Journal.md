@@ -1,6 +1,3 @@
-Here’s your text cleaned up with **minimal changes** — grammar, punctuation, and phrasing are slightly improved while keeping your original tone and structure intact:
-
----
 
 I’m just setting up the folder and path for an almost non-distracting environment. I’ll give some time each day to build a 3D renderer.
 
