@@ -135,4 +135,52 @@ But with advances in computational power, we’re starting to see this technique
 
 ---
 
+### Part 4: Adding Reflection and Refraction
+
+To get more natural and authentic images of a 3D object on a 2D screen, we need to use a combination of **reflection** and **refraction**.
+
+A paper on this topic titled *"An Improved Illumination Model for Shaded Display"* by **Turner Whitted** was an improvement upon **Appel’s ray tracing algorithm**. Whitted essentially introduced calculations for both reflection and refraction.
+
+For **reflection**, the important values to know are:
+
+* The **surface normal** at the incident point
+* The **incident ray’s angle of approach**
+
+For **refraction**, the same applies, but it also depends on the **material’s index of refraction**, which determines the angle at which light is transmitted through the material.
+
+Since energy can neither be created nor destroyed, the percentage of light that is reflected and refracted should add up to **100%**. The exact ratio between reflected and refracted light is calculated using the **Fresnel equation**, given by the French physicist **Augustin-Jean Fresnel** (a cool name — you can call him Augustin, Jean, or Fresnel depending on the weather). He was the first to understand that light is a **transverse wave**.
+
+Whitted’s algorithm comprises three main components:
+
+1. **Reflection calculation** – A light ray is sent from the eye to the object. From the point of incidence, a shadow ray is drawn toward the light source to check for shadows, and the intensity of the light is factored in.
+2. **Refraction calculation** – The same primary ray from the eye, upon hitting the surface, generates a **transmission ray** according to the material’s refractive index. This ray travels inside the object or exits through the other side (for translucent objects), where refraction is calculated again.
+3. **Fresnel equation** – Determines the proportions of reflection and refraction using the surface normal at the point of incidence, the refractive index, and the angle of incidence.
+
+---
+
+#### Pseudo-code for Whitted’s Algorithm:
+
+```cpp
+color reflectionColor = computeReflectionColor(); 
+color refractionColor = computeRefractionColor(); 
+
+float Kr; // reflection mix value
+float Kt; // refraction mix value
+
+fresnel(refractiveIndex, normalHit, primaryRayDirection, &Kr, &Kt);
+
+// Note: Kt = 1 - Kr
+glassBallColorAtHit = Kr * reflectionColor + Kt * refractionColor;
+```
+
+---
+
+The problem with reflective or refractive rays is the possibility of an **infinite mirror loop** — when reflections within an object go on forever. This is solved by introducing a **depth limiter** that stops recursion after a certain number of bounces.
+
+This restriction helps make rendering faster .
+
+---
+
+
+
 
