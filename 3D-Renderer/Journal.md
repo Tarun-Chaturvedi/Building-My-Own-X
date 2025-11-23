@@ -44,7 +44,7 @@ From his studies, we can conclude that the interaction of light with objects is 
 There are mainly **two types of ray tracing**:
 
 1. **Forward Ray Tracing:**
-   This method aligns closely with how real life works. Light from a source shoots out in all directions, reflects off surfaces in all directions, and only a minuscule fraction of that light actually enters the camera or the eye — which is how we see things.
+   This method aligns closely with how light works in real life. Light from a source shoots out in all directions, reflects off surfaces in all directions, and only a minuscule fraction of that light actually enters the camera or the eye — which is how we see things.
    However, it’s extremely resource-intensive and inefficient for computation.
 
 2. **Backward Ray Tracing:**
