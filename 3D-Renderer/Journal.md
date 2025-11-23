@@ -12,7 +12,7 @@ Starting with:
 1. [**C++: *Introduction to Ray Tracing: A Simple Method for Creating 3D Images***](https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-ray-tracing/how-does-it-work)
 
 ---
-
+---
 ### Part 1 – How Does It Work?
 
 Since it’s an introductory course on a subset of 3D rendering (which itself is a subset of CGI programming), it feels like being thrown into a jungle and having to familiarize yourself with the environment.
