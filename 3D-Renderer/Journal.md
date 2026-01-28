@@ -9,11 +9,11 @@ As of **4 October 2025**, there are **11 links** provided for understanding how 
 
 Starting with:
 
-1. [**C++: *Introduction to Ray Tracing: A Simple Method for Creating 3D Images***](https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-ray-tracing/how-does-it-work)
+# 1. [**C++: *Introduction to Ray Tracing: A Simple Method for Creating 3D Images***](https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-ray-tracing/how-does-it-work)
 
 ---
 ---
-### Part 1 – How Does It Work?
+## Part 1 – How Does It Work?
 
 Since it’s an introductory course on a subset of 3D rendering (which itself is a subset of CGI programming), it feels like being thrown into a jungle and having to familiarize yourself with the environment.
 But the goal is to have something to play with by the end of the lesson.
@@ -135,7 +135,7 @@ But with advances in computational power, we’re starting to see this technique
 
 ---
 
-### Part 4: Adding Reflection and Refraction
+## Part 4: Adding Reflection and Refraction
 
 To get more natural and authentic images of a 3D object on a 2D screen, we need to use a combination of **reflection** and **refraction**.
 
@@ -158,7 +158,7 @@ Whitted’s algorithm comprises three main components:
 
 ---
 
-#### Pseudo-code for Whitted’s Algorithm:
+### Pseudo-code for Whitted’s Algorithm:
 
 ```
 color reflectionColor = computeReflectionColor(); 
@@ -181,7 +181,7 @@ This restriction helps make rendering faster .
 
 ---
 
-**Part 5 – Writing a Basic Raytracer**
+## **Part 5 – Writing a Basic Raytracer**
 
 So we’re now in the deep end of this journey of understanding raytracing — actually seeing how one works on our computer.
 
