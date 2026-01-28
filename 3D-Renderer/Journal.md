@@ -598,4 +598,24 @@ if __name__ == "__main__":
 
 This article was fun and easy to understand, and now I at least understand what I *don’t* know better than before. I’ll continue feeding my curiosity — until then, stay tuned.
 
+---
+---
+
+# 2. [**C++**: _How OpenGL works: software rendering in 500 lines of code_](https://github.com/ssloy/tinyrenderer/wiki)
+
+## Tinyrenderer: Concepts and Scope
+
+**What does a renderer do?** It renders something visual for all to see.
+
+**What does render mean?**
+- **Verb:** Used to mean to give/provide/present.
+- **Noun:** Used to mean a rendered image.
+
+### Scope of this venture
+
+- A simple renderer built from scratch in a programming language.
+- Containing around 500 lines of code (not a good rating for simplicity or complexity).
+- It will give output to an image (also could be called a render).
+
+---
 
