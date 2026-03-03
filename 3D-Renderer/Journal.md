@@ -643,7 +643,7 @@ To implement this, we are provided with three files:
     main.cpp
 
 #### tgaimage.h
-C++
+---C++
 
 #pragma once
 #include <cstdint>
@@ -692,7 +692,7 @@ private:
     std::uint8_t bpp = 0;
     std::vector<std::uint8_t> data = {};
 };
-
+---
 Code Notes
 
     #pragma once: This is used to avoid violating the One Definition Rule (ODR) by preventing multiple declarations if the file is included more than once.
