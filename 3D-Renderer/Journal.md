@@ -617,5 +617,88 @@ This article was fun and easy to understand, and now I at least understand what 
 - Containing around 500 lines of code (not a good rating for simplicity or complexity).
 - It will give output to an image (also could be called a render).
 
+### Drawing with Bresenham's Line Algorithm
+
+Before diving into the line algorithm itself, it is worth noting some background on its origin and its creator.
+
+The Bresenham Algorithm is a line-drawing method that shares its lineage with the Midpoint Circle Algorithm (used for drawing circles). While it is an older technique, it remains incredibly fast and efficient because it relies on simple integer operations—such as addition, subtraction, and bit shifting—rather than heavy floating-point math.
+#### Key Applications and History
+
+    Purpose: Used to create raster images or bitmaps.
+
+    Presence: Commonly found in graphics libraries and firmware-level software.
+
+    Evolution: Today, "Bresenham" often refers to a whole family of algorithms extended from the original version.
+
+    The Creator: The algorithm was developed by John Elton Bresenham while working at IBM around 1961.
+
+#### Project Files
+
+To implement this, we are provided with three files:
+
+    tgaimage.h
+
+    tgaimage.cpp
+
+    main.cpp
+
+#### tgaimage.h
+C++
+
+#pragma once
+#include <cstdint>
+#include <fstream>
+#include <vector>
+
+#pragma pack(push,1)
+struct TGAHeader {
+    std::uint8_t  idlength = 0;
+    std::uint8_t  colormaptype = 0;
+    std::uint8_t  datatypecode = 0;
+    std::uint16_t colormaporigin = 0;
+    std::uint16_t colormaplength = 0;
+    std::uint8_t  colormapdepth = 0;
+    std::uint16_t x_origin = 0;
+    std::uint16_t y_origin = 0;
+    std::uint16_t width = 0;
+    std::uint16_t height = 0;
+    std::uint8_t  bitsperpixel = 0;
+    std::uint8_t  imagedescriptor = 0;
+};
+#pragma pack(pop)
+
+struct TGAColor {
+    std::uint8_t bgra[4] = {0,0,0,0};
+    std::uint8_t bytespp = 4;
+    std::uint8_t& operator[](const int i) { return bgra[i]; }
+};
+
+struct TGAImage {
+    enum Format { GRAYSCALE=1, RGB=3, RGBA=4 };
+    TGAImage() = default;
+    TGAImage(const int w, const int h, const int bpp);
+    bool  read_tga_file(const std::string filename);
+    bool write_tga_file(const std::string filename, const bool vflip=true, const bool rle=true) const;
+    void flip_horizontally();
+    void flip_vertically();
+    TGAColor get(const int x, const int y) const;
+    void set(const int x, const int y, const TGAColor &c);
+    int width()  const;
+    int height() const;
+private:
+    bool   load_rle_data(std::ifstream &in);
+    bool unload_rle_data(std::ofstream &out) const;
+    int w = 0, h = 0;
+    std::uint8_t bpp = 0;
+    std::vector<std::uint8_t> data = {};
+};
+
+Code Notes
+
+    #pragma once: This is used to avoid violating the One Definition Rule (ODR) by preventing multiple declarations if the file is included more than once.
+
+    Structures: This header introduces the core structures for TGAHeader, TGAColor, and TGAImage.
+
+    Note on Image Types: Digital images generally fall into two categories: Raster and Vector. Raster images (like the ones we are creating here) are composed of pixels and will appear blurry when zoomed in, whereas Vector images maintain their sharpness at any scale.
 ---
 
